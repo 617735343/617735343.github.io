@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="jd.css">
+    <link rel="stylesheet" href="./swiper-4.4.2/dist/css/swiper.min.css">
+    <style>
+        .fixed{
+            position: fixed;
+            width: 40px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            z-index: 10000;
+        }
+        .fixed ul{
+            list-style: none;
+            position:absolute;
+            top: 30%;
+            left: 0;
+            z-index: 1000;
+        }
+        .fixed ul li{
+            width: 35px;
+            height: 35px;
+            background-color: #666;
+            margin-top: 3px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            position: relative;
+        }
+        .fixed ul li a{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            position: relative;
+        }
+        .fixed ul li img{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+        }
+        .fixed_right{
+            width: 5px;
+            height: 100%;
+            background-color: #666;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 100;
+        }
+        .fixed_bottom{
+            width: 35px;
+            height: 35px;
+            background-color: #666;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 41px;
+            color: white;
+            z-index: 100;
+            /* position: relative; */
+        }
+        .fixed_none{
+            width: 0px;
+            height: 35px;
+            position: absolute;
+            background-color: red;
+            color: white;
+            top: 0px;
+            left: 0px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 35px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .fixed ul li a:hover{
+            background-color: red;
+            width: 40px;
+        }
+        .fixed ul li:hover .fixed_none{
+            width: 65px;
+            left: -60px;
+            opacity: 1;
+        }
+        .fixed_bottom:hover{
+            background-color: red;
+            width: 40px;
+        }
+        .fixed_bottom:hover .fixed_none{
+            width: 65px;
+            left: -60px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./img/vip.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    京东会员
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/shopcar.png" style="width: 32px; height: 32px;margin-top: -16px;margin-left: -16px;"
+                        alt="">
+                </a>
+                <div class="fixed_none">
+                    购物车
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/attention.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    我的关注
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/foot.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    我的足迹
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/news.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    我的消息
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/question.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    资讯
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/back.png" alt="">
+                </a>
+                <div class="fixed_none">
+                    反馈
+                </div>
+            </li>
+        </ul>
+        <div class="fixed_right"></div>
+        <a href="#">
+            <div class="fixed_bottom">^
+                <div class="fixed_none">
+                    回到顶部
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="top">
+        <div class="top_img">
+            <p>
+                <img src="./img/top01.jpg" alt="">
+            </p>
+            <div class="x"><a href="#">X</a> </div>
+        </div>
+        <div class="nav">
+            <div class="nav_box clearfix">
+                <div class="address">
+                    <div class="address_show" id="address_show">
+                        <img src="./img/address.PNG" alt="">
+                        <span>北京</span>
+                        <ul class="ul01">
+                            <li class="bg_red">北京</li>
+                            <li>上海</li>
+                            <li>天津</li>
+                            <li>重庆</li>
+                            <li>河北</li>
+                            <li>山西</li>
+                            <li>河南</li>
+                            <li>辽宁</li>
+                            <li>吉林</li>
+                            <li>黑龙江</li>
+                            <li>内蒙古</li>
+                            <li>江苏</li>
+                            <li>山东</li>
+                            <li>安徽</li>
+                            <li>浙江</li>
+                            <li>福建</li>
+                            <li>湖北</li>
+                            <li>湖南</li>
+                            <li>广东</li>
+                            <li>广西</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul>
+                    <li class="removeborder"><a href="#">你好，请登录</a></li>
+                    <li class="removeborder"><a href="#" class="red">免费注册</a></li>
+                    <li><a href="#">我的订单</a></li>
+                    <li class="myjd_show">
+                        <div class="myjd">
+                            <a href="#">我的京东</a>
+                            <i>&#xe605;</i>
+                        </div>
+                        <div class="myjd_none ">
+                            <ul>
+                                <li>待处理订单</li>
+                                <li>消息</li>
+                                <li>返修退换货</li>
+                                <li>我的问答</li>
+                                <li>降价商品</li>
+                                <li>我的关注</li>
+                                <li>我的京豆</li>
+                                <li>我的优惠卷</li>
+                                <li>我的白条</li>
+                                <li>我的理财</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">京东会员</a></li>
+                    <li class="myjd_show">
+                        <div class="myjd">
+                            <a href="#">企业采购</a>
+                            <i>&#xe605;</i>
+                        </div>
+                        <div class="my_none">
+                            <ul>
+                                <li>企业采购</li>
+                                <li>商用场景馆</li>
+                                <li>工业品</li>
+                                <li>礼品卡</li>
+                                <li>工业商铺</li>
+                                <li>合作招商</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="customer">
+                            <a href="#">客户服务</a>
+                            <i>&#xe605;</i>
+                        </div>
+                        <div class="customer_none none"></div>
+                    </li>
+                    <li>
+                        <div class="web">
+                            <a href="#">网站导航</a>
+                            <i>&#xe605;</i>
+                        </div>
+                        <div class="web_none none"></div>
+                    </li>
+                    <li>
+                        <div class="phone">
+                            <a href="#">手机京东</a>
+                        </div>
+                        <div class="phone_none none"></div>
+                    </li>
+                </ul>
+                <div class="jd_box">
+                    <p>
+                        <img src="./img/jd.PNG" alt="">
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="sousuo_box clearfix">
+            <div class="sousuo">
+                <input type="text" autofocus placeholder="服装狂欢不止五折">
+            </div>
+            <a href="#">
+                <div class="button">
+                    <img src="./img/search.png" alt="">
+                </div>
+            </a>
+            <a href="#">
+                <div class="button_right">
+                    <p>我的购物车</p>
+                </div>
+            </a>
+            <ul class="ul">
+                <li class="red"><a href="#">手游好物件</a></li>
+                <li><a href="#">厨房烹饪</a></li>
+                <li><a href="#">坚果零食</a></li>
+                <li><a href="#">Apple</a></li>
+                <li><a href="#">游戏手机</a></li>
+                <li><a href="#">vivo</a></li>
+                <li><a href="#">大闸蟹</a></li>
+                <li><a href="#">满千减百</a></li>
+                <li><a href="#">1元秒杀</a></li>
+            </ul>
+            <div class="miaosha clearfix">
+                <ul>
+                    <li><a href="#">秒杀</a></li>
+                    <li><a href="#">优惠卷</a></li>
+                    <li><a href="#">PLUS会员</a></li>
+                    <li><a href="#">闪购</a></li>
+                </ul>
+                <p>|</p>
+                <ul>
+                    <li><a href="#">拍卖</a></li>
+                    <li><a href="#">京东时尚</a></li>
+                    <li><a href="#">京东超市</a></li>
+                    <li><a href="#">京东生鲜</a></li>
+                </ul>
+                <p>|</p>
+                <ul>
+                    <li><a href="#">全球购</a></li>
+                    <li><a href="#">京东金融</a></li>
+                </ul>
+                <a href="#">
+                    <img src="https://img11.360buyimg.com/da/jfs/t30895/221/259564392/5009/fc9a1f69/5bed3ca2N5e3651af.png"
+                        alt="">
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main clearfix">
+        <div class="wrap" id="test">
+            <ul>
+                <li data-id="a">
+                    <span>家用电器</span>
+                </li>
+                <li data-id="b">
+                    <span>手机/运营商/数码</span>
+                </li>
+                <li data-id="c">
+                    <span>电脑办公</span>
+                </li>
+                <li data-id="d">
+                    <span>家居/家具/家装/厨具</span>
+                </li>
+                <li data-id="e">
+                    <span>男装/女装/童装/内衣</span>
+                </li>
+                <li data-id="f">
+                    <span>个护化妆/清洁用品/宠物</span>
+                </li>
+                <li data-id="g">
+                    <span>鞋/箱包/珠宝/奢侈品</span>
+                </li>
+                <li data-id="h">
+                    <span>运动/户外/钟表</span>
+                </li>
+                <li data-id="i">
+                    <span>汽车/汽车用品</span>
+                </li>
+                <li data-id="j">
+                    <span>女婴/玩具乐器</span>
+                </li>
+                <li data-id="k">
+                    <span>食品/酒类/生鲜/特产</span>
+                </li>
+                <li data-id="l">
+                    <span>医药保险</span>
+                </li>
+                <li data-id="b">
+                    <span>女婴/玩具乐器</span>
+                </li>
+                <li data-id="c">
+                    <span>食品/酒类/生鲜/特产</span>
+                </li>
+                <li data-id="c">
+                    <span>食品/酒类/生鲜/特产</span>
+                </li>
+
+            </ul>
+            <div id="sub" class="none">
+                <div id="a" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电视<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">合资品牌</a>
+                            <a href="a">国产品牌</a>
+                            <a href="a">互联网品牌</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">空调<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">壁挂式空调</a>
+                            <a href="a">柜式空调</a>
+                            <a href="a">中央空调</a>
+                            <a href="a">空调配件</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">洗衣机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">滚筒洗衣机</a>
+                            <a href="a">洗洪一体机</a>
+                            <a href="a">滚轮洗衣机</a>
+                            <a href="a">迷你洗衣机</a>
+                            <a href="a">洗衣机配件</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">冰箱<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">多门</a>
+                            <a href="a">对开们</a>
+                            <a href="a">三门</a>
+                            <a href="a">双门</a>
+                            <a href="a">冷柜/冰吧</a>
+                            <a href="a">酒柜</a>
+                            <a href="a">冰箱配件</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="b" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">手机通讯<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">手机</a>
+                            <a href="a">游戏手机</a>
+                            <a href="a">老人机</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">运营商<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">合约机</a>
+                            <a href="a">选号码</a>
+                            <a href="a">固话宽带</a>
+                            <a href="a">办套餐</a>
+                            <a href="a">充话费/流量</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">手机配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">手机壳</a>
+                            <a href="a">贴膜</a>
+                            <a href="a">手机存储卡</a>
+                            <a href="a">数据线</a>
+                            <a href="a">充电器</a>
+                            <a href="a">手机耳机</a>
+                            <a href="a">创意配件</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="c" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="d" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">厨具<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">水距酒具</a>
+                            <a href="a">烹饪锅具</a>
+                            <a href="a">炒锅</a>
+                            <a href="a">餐具</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">家访<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">四件套</a>
+                            <a href="a">被子</a>
+                            <a href="a">枕芯</a>
+                            <a href="a">毛巾浴巾</a>
+                            <a href="a">电热毯</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">冰箱<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">多门</a>
+                            <a href="a">对开们</a>
+                            <a href="a">三门</a>
+                            <a href="a">双门</a>
+                            <a href="a">冷柜/冰吧</a>
+                            <a href="a">酒柜</a>
+                            <a href="a">冰箱配件</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="e" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="f" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="g" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="h" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="i" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="j" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="k" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="l" class="sub_content none">
+                    <dl>
+                        <dt>
+                            <a href="a">电脑整机<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">笔记本</a>
+                            <a href="a">游戏本</a>
+                            <a href="a">平板电脑</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">电脑配件<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">显示器</a>
+                            <a href="a">CPU</a>
+                            <a href="a">主板</a>
+                            <a href="a">显卡</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">外设产品<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">鼠标</a>
+                            <a href="a">键盘</a>
+                            <a href="a">键鼠套装</a>
+                            <a href="a">网络仪表器</a>
+                            <a href="a">U盘</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="a">游戏设备<i>&gt;</i></a>
+                        </dt>
+                        <dd>
+                            <a href="a">游戏机</a>
+                            <a href="a">游戏耳机</a>
+                            <a href="a">手柄/方向盘</a>
+                            <a href="a">游戏软件</a>
+                            <a href="a">游戏周边</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="imgbox">
+            <a href="#" id="img01">
+                <img src="./img/01.jpg" alt="" class="img opacity">
+            </a>
+            <a href="#" id="img02">
+                <img src="./img/02.jpg" alt="" class="img">
+            </a>
+            <a href="#" id="img03">
+                <img src="./img/03.jpg" alt="" class="img">
+            </a>
+            <a href="#" id="img04">
+                <img src="./img/04.jpg" alt="" class="img">
+            </a>
+            <div class="last" id="last">
+                <</div> <div class="next" id="next">>
+            </div>
+        </div>
+        <div class="center_left">
+            <a href="#" class="center_left_img1"></a>
+            <a href="#" class="center_left_img2"></a>
+            <a href="#" class="center_left_img3"></a>
+        </div>
+        <div class="main_right">
+            <div class="main_logo">
+                <a href="#">
+                    <img src="https://misc.360buyimg.com/mtd/pc/common/img/no_login.jpg" alt="">
+                </a>
+            </div>
+            <div class="main_hi">
+                <p>Hi~欢迎来到京东！</p>
+                <p>
+                    <a href="#">登录</a>
+                    <a href="#">注册</a>
+                </p>
+            </div>
+            <div class="main_button">
+                <a href="#" class="new">新人福利</a>
+                <a href="#" class="plusvip">PLUS会员</a>
+            </div>
+            <div class="main_r_c clearfix">
+                <div class="c_title">
+                    <a href="#" class="c_title1">促销</a>
+                    <a href="#" class="c_title2">公告</a>
+                    <a href="#" class="c_title3">更多</a>
+                </div>
+                <div class="player">
+                    <i class="p_red" style="left:15px"></i>
+                </div>
+                <div class="b_title">
+                    <div class="c_1_show">
+                        <a href="#">电脑数码 享白条免息</a>
+                        <a href="#">数码好物0元试用</a>
+                        <a href="#">天际厨电感恩专场豪礼免费拿</a>
+                    </div>
+                    <div class="c_2_show display_none">
+                        <a href="#">京东图书勋章体系改版公告</a>
+                        <a href="#">京东PLUS会员权益更新及会费...</a>
+                        <a href="#">京东启用全新客服电话“950618”...</a>
+                        <a href="#">关于召回普利司通（天津）轮胎...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="main_footer">
+                <div class="footer_t_show">
+                    <ul>
+                        <li class="border_b">
+                            <a href="#">话费</a>
+                        </li>
+                        <li>
+                            <a href="#">机票</a>
+                        </li>
+                        <li>
+                            <a href="#">酒店</a>
+                        </li>
+                        <li>
+                            <a href="#">游戏</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_b_show">
+                    <div class="show_delect clearfix">X</div>
+                    <ul>
+                        <li>
+                            <a href="#">话费充值</a>
+                        </li>
+                        <li>
+                            <a href="#">流量充值</a>
+                        </li>
+                        <li>
+                            <a href="#">套餐变更</a>
+                        </li>
+                    </ul>
+                    <div class="footer_input clearfix">
+                        <label for="number">号码</label><input type="text" name="number" placeholder="移动/联通/电信">
+                        <label for="money">面值</label>
+                        <select name="money" id="money">
+                            <option value="0">100元</option>
+                            <option value="0">500元</option>
+                            <option value="0">1000元</option>
+                            <option value="0">1500元</option>
+                            <option value="0">2000元</option>
+                        </select>
+                        <span>￥98.0-￥100.0</span>
+                        <button>快速充值</button>
+                        <p>抢90减50元话费券</p>
+                    </div>
+                </div>
+                <ul id="ul_none">
+                    <li class="footer_t_none">
+                        <ul>
+                            <li>
+                                <a href="#" id="fare">
+                                    <i class="fare"></i>
+                                    <span>话费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="plane">
+                                    <i class="plane"></i>
+                                    <span>机票</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="hotel">
+                                    <i class="hotel"></i>
+                                    <span>酒店</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="game">
+                                    <i class="game"></i>
+                                    <span>游戏</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="company">
+                            <i class="company"></i>
+                            <span>企业购</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="comeon">
+                            <i class="comeon"></i>
+                            <span>加油卡</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="movie">
+                            <i class="movie"></i>
+                            <span>电影票</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="hotcar">
+                            <i class="hotcar"></i>
+                            <span>火车票</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="polper">
+                            <i class="polper"></i>
+                            <span>众筹</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="money">
+                            <i class="money"></i>
+                            <span>理财</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="gift">
+                            <i class="gift"></i>
+                            <span>礼品卡</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="bar">
+                            <i class="bar"></i>
+                            <span>白条</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main2 clearfix">
+        <div class="miaoshabox">
+            <p class="m_title">京东秒杀</p>
+            <p class="m_text">FLASH DEALS</p>
+            <i class="shandian"></i>
+            <p class="m_b_text">本场距离结束还剩</p>
+            <div class="shijian">
+                <div class="zhong" id="hour">10</div>
+                <div class="zhong" id="minute">10</div>
+                <div class="zhong" id="second">15</div>
+            </div>
+        </div>
+        <div class="main2_c_img clearfix">
+            <div class="m_c_l clearfix">
+                <div class="m_c_l_show playleft" style="left:0">
+                    <div class="m_c_l_img">
+                        <img src="./img/洛基亚.png" alt="" class="top_01">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/海信.png" alt="" class="top_02">
+                    </div>
+                    <div class="m_c_l_img">\
+                        <img src="./img/帕斯卡.png" alt="" class="top_03">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/三星.png" alt="" class="top_04">
+                    </div>
+                </div>
+
+
+                <div class="m_c_l_none1 playleft" style="left:808px">
+                    <div class="m_c_l_img">
+                        <img src="./img/套装.png" alt="" class="top_03">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/大闸蟹.png" alt="">
+                    </div>
+                    <div class="m_c_l_img">\
+                        <img src="./img/衣服.png" alt="" class="top_03">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/奶粉.png" alt="">
+                    </div>
+                </div>
+                <div class="m_c_l_none2 playleft" style="left:1616px">
+                    <div class="m_c_l_img">
+                        <img src="./img/小米.png" alt="" class="top_02">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/欧诗漫.png" alt="" class="top_05">
+                    </div>
+                    <div class="m_c_l_img">\
+                        <img src="./img/茅台.png" alt="" class="top_06">
+                    </div>
+                    <div class="m_c_l_img">
+                        <img src="./img/鼠标.png" alt="" class="top_06">
+                    </div>
+                </div>
+
+                <div class="m_c_l_last">
+                    <</div> <div class="m_c_l_next">>
+                </div>
+            </div>
+            <div class="m_c_r">
+                <div class="m_c_r_show">
+                    <img src="./img/品类秒杀.jpg!q90!cc_180x260" alt="">
+                </div>
+                <div class="m_c_r_none">
+                    <img src="./img/OLAY品牌秒杀.jpg!q90!cc_180x260" alt="">
+                </div>
+                <i class="i_red bgred" id="i_red"></i>
+                <i class="i_black" id="i_black"></i>
+            </div>
+        </div>
+    </div>
+    <div class="main2_box2">
+        <div class="m_b m_b_left">
+            <div class="m_b_l_t">
+                <a href="#">
+                    <h3>排行榜</h3>
+                    <i class="jiantou"></i>
+                    <span class="m_b_l_span">专属你的购物指南</span>
+                </a>
+            </div>
+            <div class="m_b_l_nav">
+                <ul id="hover">
+                    <li class="red" value="0">乐器</li>
+                    <li class="hover" value="1">手机通讯</li>
+                    <li class="hover" value="2">运动鞋包</li>
+                    <li class="hover" value="3">运动服饰</li>
+                    <li class="hover" value="4">男装</li>
+                </ul>
+            </div>
+            <div class="m_b_l_banner">
+                <div class="m_b_l_banner_box opacity" id="z-index">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/架子骨.webp" alt="">
+                            <h1>1</h1>
+                            <span>婴幼儿童架子鼓玩具初学者男孩小孩入门启蒙敲打乐器 爵士鼓</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/口风琴.webp" alt="">
+                            <h1>2</h1>
+                            <span>奇美QIMEI口琴 纪念版24孔复音口琴C调（雅典黑）</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/陶萧.webp" alt="">
+                            <h1>3</h1>
+                            <span>相思鸟（LOVEBIRD）12孔陶笛骨瓷中音AC调 上釉冰裂十二孔</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="m_b_l_banner_box">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/小米1.webp" alt="">
+                            <h1>1</h1>
+                            <span>小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/小米Mis3.webp" alt="">
+                            <h1>2</h1>
+                            <span>小米Mix3 8GB+128GB黑色 骁龙845全网通4G 双卡双待 全面屏拍照游戏智能手机</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/iponeX.webp" alt="">
+                            <h1>3</h1>
+                            <span>Apple iPhone X (A1865) 64GB 银色 移动联通电信4G手机</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="m_b_l_banner_box">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/阿迪达斯-拖鞋.webp" alt="">
+                            <h1>1</h1>
+                            <span>婴幼儿童架子鼓玩具初学者男孩小孩入门启蒙敲打乐器 爵士鼓</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/阿迪达斯-休闲鞋.webp" alt="">
+                            <h1>2</h1>
+                            <span>奇美QIMEI口琴 纪念版24孔复音口琴C调（雅典黑）</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/安踏.webp" alt="">
+                            <h1>3</h1>
+                            <span>相思鸟（LOVEBIRD）12孔陶笛骨瓷中音AC调 上釉冰裂十二孔</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="m_b_l_banner_box">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/范斯迪克.webp" alt="">
+                            <h1>1</h1>
+                            <span>婴幼儿童架子鼓玩具初学者男孩小孩入门启蒙敲打乐器 爵士鼓</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/阿迪达斯-裤子.webp" alt="">
+                            <h1>2</h1>
+                            <span>奇美QIMEI口琴 纪念版24孔复音口琴C调（雅典黑）</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/阿迪达斯-卫衣.webp" alt="">
+                            <h1>3</h1>
+                            <span>相思鸟（LOVEBIRD）12孔陶笛骨瓷中音AC调 上釉冰裂十二孔</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="m_b_l_banner_box">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男外套.webp" alt="">
+                            <h1>1</h1>
+                            <span>婴幼儿童架子鼓玩具初学者男孩小孩入门启蒙敲打乐器 爵士鼓</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男休闲裤.webp" alt="">
+                            <h1>2</h1>
+                            <span>奇美QIMEI口琴 纪念版24孔复音口琴C调（雅典黑）</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男棉衣外套.webp" alt="">
+                            <h1>3</h1>
+                            <span>相思鸟（LOVEBIRD）12孔陶笛骨瓷中音AC调 上釉冰裂十二孔</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="m_b_l_banner_box_right" id="banner_right">
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男外套.webp" alt="">
+                            <h1>4</h1>
+                            <span>婴幼儿童架子鼓玩具初学者男孩小孩入门启蒙敲打乐器 爵士鼓</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男休闲裤.webp" alt="">
+                            <h1>5</h1>
+                            <span>奇美QIMEI口琴 纪念版24孔复音口琴C调（雅典黑）</span>
+                        </a>
+                    </div>
+                    <div class="m_b_l_box clearfix">
+                        <a href="#">
+                            <img src="./img/男棉衣外套.webp" alt="">
+                            <h1>6</h1>
+                            <span>相思鸟（LOVEBIRD）12孔陶笛骨瓷中音AC调 上釉冰裂十二孔</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <i class="i_red bgred" id="i_red_m"></i>
+            <i class="i_black" id="i_black_m"></i>
+        </div>
+        <div class="m_b m_b_center">
+            <div class="m_b_l_t">
+                <a href="#">
+                    <h3>会买专辑</h3>
+                    <i class="jiantou"></i>
+                    <span class="m_b_l_span">甄选优质好物</span>
+                </a>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="./img/专辑01.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="./img/专辑02.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="./img/专辑03.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- 如果需要滚动条
+                <div class="swiper-scrollbar"></div> -->
+            </div>
+        </div>
+        <div class="m_b m_b_right">
+            <div class="m_b_l_t">
+                <a href="#">
+                    <h3>领卷中心</h3>
+                    <i class="jiantou"></i>
+                    <span class="m_b_l_span">前往领卷中心</span>
+                </a>
+            </div>
+            <div class="m_b_cen">
+                <div class="m_b_cen_left">
+                    <div class="yhj">
+                        <div class="yhj_img">
+                            <img src="./img/优惠卷1.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">200</span>
+                            <p class="yhj_test1">满799元可用</p>
+                            <p class="yhj_test2">京东大药房慢病用...</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi wenzitop">更多精选好卷</div>
+                        </div>
+                    </div>
+                    <div class="yhj tran">
+                        <div class="yhj_img">
+                            <img src="./img/优惠卷2.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">400</span>
+                            <p class="yhj_test1">满6500元可用</p>
+                            <p class="yhj_test2">购买指定iPhone...</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi">更多手机数码卷</div>
+                        </div>
+                    </div>
+                    <div class="yhj">
+                        <div class="yhj_img">
+                            <img src="./img/优惠卷3.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">10</span>
+                            <p class="yhj_test1">满109元可用</p>
+                            <p class="yhj_test2">水饮部分商品</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi">更多食物饮品卷</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="m_b_cen_right">
+                    <div class="yhj">
+                        <div class="yhj_img">
+                            <img src="./img/优惠券5.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">500</span>
+                            <p class="yhj_test1">满1000元可用</p>
+                            <p class="yhj_test2">购买九阳净水部分...</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi wenzitop">更多精选好卷</div>
+                        </div>
+                    </div>
+                    <div class="yhj tran">
+                        <div class="yhj_img">
+                            <img src="./img/优惠卷4.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">50</span>
+                            <p class="yhj_test1">满99元可用</p>
+                            <p class="yhj_test2">自营内衣精选</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi">更多手机数码卷</div>
+                        </div>
+                    </div>
+                    <div class="yhj">
+                        <div class="yhj_img">
+                            <img src="./img/优惠卷6.webp" alt="">
+                        </div>
+                        <div class="yhj_center">
+                            <i>￥</i>
+                            <span class="yhj_title">300</span>
+                            <p class="yhj_test1">满799元可用</p>
+                            <p class="yhj_test2">仅可购买家纺指定...</p>
+                        </div>
+                        <div class="yhj_right">
+                            <div class="wenzi">更多食物饮品卷</div>
+                        </div>
+                    </div>
+                </div>
+                <i class="yhj_d_left d_red" id="yhj_left"></i>
+                <i class="yhj_d_right" id="yhj_right"></i>
+            </div>
+        </div>
+    </div>
+    <div class="jiazai">
+        <img id="jiazai_img" src="./img/xiaogou.gif" alt="">
+        <span id="jiazai_test">网络加载失败！</span>
+    </div>
+    <footer>
+        <div class="footer_title clearfix">
+            <ul>
+                <li>
+                    <img src="./img/多.png" alt="">
+                    <span>品类齐全，轻松购物</span>
+                </li>
+                <li>
+                    <img src="./img/快.png" alt="">
+                    <span>多仓直发，极速配送</span>
+                </li>
+                <li>
+                    <img src="./img/好.png" alt="">
+                    <span>正品行货，精致服务</span>
+                </li>
+                <li>
+                    <img src="./img/省.png" alt="">
+                    <span>天天低价，畅选无忧</span>
+                </li>
+            </ul>
+        </div>
+        <div class="footer_main clearfix">
+            <ul>
+                <li>
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd>购物流程</dd>
+                        <dd>会员介绍</dd>
+                        <dd>生活旅行</dd>
+                        <dd>常见问题</dd>
+                        <dd>大家电</dd>
+                        <dd>联系客服</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd>购物流程</dd>
+                        <dd>会员介绍</dd>
+                        <dd>生活旅行</dd>
+                        <dd>常见问题</dd>
+                        <dd>大家电</dd>
+                        <dd>联系客服</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd>购物流程</dd>
+                        <dd>会员介绍</dd>
+                        <dd>生活旅行</dd>
+                        <dd>常见问题</dd>
+                        <dd>大家电</dd>
+                        <dd>联系客服</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd>购物流程</dd>
+                        <dd>会员介绍</dd>
+                        <dd>生活旅行</dd>
+                        <dd>常见问题</dd>
+                        <dd>大家电</dd>
+                        <dd>联系客服</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>购物指南</dt>
+                        <dd>购物流程</dd>
+                        <dd>会员介绍</dd>
+                        <dd>生活旅行</dd>
+                        <dd>常见问题</dd>
+                        <dd>大家电</dd>
+                        <dd>联系客服</dd>
+                    </dl>
+                </li>
+                <li>
+                    <div class="ditu">
+                        <p>京东自营覆盖区县</p>
+                        <span>京东已向全国2661个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</span>
+                        <a href="#">查看详情</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="./swiper-4.4.2/dist/js/swiper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="jd.js"></script> -->
+    <script src="demo.js"></script>
+    <script src="delect.js"></script>
+    <script>
+        var img = document.getElementsByClassName('img');
+
+        var last = document.getElementById('last');
+        var next = document.getElementById('next');
+        var num = 0;
+        var a = 0;
+
+        last.onclick = function () {
+            console.log(1);
+            if (a > 0) {
+                num = a;
+                img[num].className = "img";
+                a--;
+                img[a].className = "img opacity";
+            } else {
+                a = 3;
+            }
+        }
+
+        next.onclick = function () {
+            if (a < 3) {
+                num = a;
+                img[num].className = "img";
+                a++;
+                img[a].className = "img opacity";
+            } else {
+                img[a].className = "img";
+                a = 0;
+                img[a].className = "img opacity";
+            }
+        }
+
+        var timer = setInterval(function () {
+            next.onclick();
+        }, 2000);
+
+
+        //移动滚动条
+        var c_title1 = document.getElementsByClassName('c_title1')[0];
+        var c_title2 = document.getElementsByClassName('c_title2')[0];
+        var p_red = document.getElementsByClassName('p_red')[0];
+        //变动显示隐藏div
+        var c_1_show = document.getElementsByClassName('c_1_show')[0];
+        var c_2_show = document.getElementsByClassName('c_2_show')[0];
+
+        c_title2.onmouseover = function () {
+            console.log(123);
+            p_red.style.left = '75px';
+            c_2_show.className = 'c_2_show';
+            c_1_show.className = 'c_1_show display_none';
+        }
+
+        c_title1.onmouseover = function () {
+            p_red.style.left = '15px';
+            c_1_show.className = 'c_1_show';
+            c_2_show.className = 'c_2_show display_none';
+        }
+
+
+        /*
+            话费、机票动画栏实现
+        */
+        var fare = document.getElementById('fare');
+        var footer_t_show = document.getElementsByClassName('footer_t_show')[0];
+        var footer_b_show = document.getElementsByClassName('footer_b_show')[0];
+        var ul_none = document.getElementById('ul_none');
+        var show_delect = document.getElementsByClassName('show_delect')[0];
+        var timer = null;
+        fare.onmouseenter = function () {
+            timer = setTimeout(function () {
+                footer_t_show.style.top = 0 + 'px';
+                footer_b_show.style.top = 40 + 'px';
+                ul_none.style.top = -100 + 'px';
+            }, 500)
+        }
+
+        fare.onmouseleave = function () {
+            clearTimeout(timer)
+        }
+        show_delect.onclick = function () {
+            footer_t_show.style.top = -40 + 'px';
+            footer_b_show.style.top = 196 + 'px';
+            ul_none.style.top = 15 + 'px';
+        }
+
+        //京东秒杀时间倒数实现
+        var second = document.getElementById('second');
+        var minute = document.getElementById('minute');
+        var hour = document.getElementById('hour');
+        var abc = 15;
+
+        function X() {
+            setTimeout(function () {
+                abc--;
+                if (abc >= 0) {
+                    second.innerHTML = abc;
+                } else {
+                    abc = 59;
+                    second.innerHTML = abc;
+                    var dd = parseInt(minute.innerHTML) - 1;
+                    if (dd >= 0) {
+                        minute.innerHTML = dd;
+                    } else {
+                        dd = 59;
+                        minute.innerHTML = dd;
+                        var cc = parseInt(hour.innerHTML) - 1;
+                        if (cc >= 0) {
+                            hour.innerHTML = cc;
+                        } else {
+                            cc = 59;
+                            hour.innerHTML = cc;
+                        }
+                    }
+                }
+                X();
+            }, 1000)
+        }
+        X();
+
+        //实现商品按钮轮播功能
+        var m_c_l_last = document.getElementsByClassName('m_c_l_last')[0];
+        var m_c_l_next = document.getElementsByClassName('m_c_l_next')[0];
+
+        var playleft = document.getElementsByClassName('playleft');
+        var leftnum = 0;
+        var on = 0;
+
+        m_c_l_last.onclick = function () {
+            // playleft[leftnum].style.left=parseInt(playleft[leftnum].style.left)+808+"px";
+            leftnum--;
+            on = leftnum;
+            if (on >= 0) {
+                playleft[0].style.left = parseInt(playleft[0].style.left) + 808 + 'px';
+                playleft[1].style.left = parseInt(playleft[1].style.left) + 808 + 'px';
+                playleft[2].style.left = parseInt(playleft[2].style.left) + 808 + 'px';
+            } else {
+                on = 2;
+                leftnum = 2;
+                // playleft[on].style.left=parseInt(playleft[on].style.left)+808+'px';\
+                playleft[0].style.left = '-1616px';
+                playleft[1].style.left = '-808px';
+                playleft[2].style.left = '0px';
+            }
+
+            // if(playleft[leftnum].style.left=="2424px"){
+            //     playleft[0].style.left='-808px';
+            //     playleft[1].style.left='-808px';
+            //     playleft[2].style.left='0px';
+            // }
+        }
+
+        m_c_l_next.onclick = function () {
+            // playleft[leftnum].style.left=parseInt(playleft[leftnum].style.left)-808+"px";
+            leftnum++;
+            on = leftnum;
+            if (on <= 2) {
+                // playleft[on].style.left=parseInt(playleft[on].style.left)-808+'px';
+                playleft[0].style.left = parseInt(playleft[0].style.left) - 808 + 'px';
+                playleft[1].style.left = parseInt(playleft[1].style.left) - 808 + 'px';
+                playleft[2].style.left = parseInt(playleft[2].style.left) - 808 + 'px';
+            } else {
+                on = 0;
+                leftnum = 0;
+                // playleft[on].style.left=parseInt(playleft[on].style.left)-1616+'px';
+                playleft[0].style.left = '0px';
+                playleft[1].style.left = '808px';
+                playleft[2].style.left = '1616px';
+            }
+
+            // if(playleft[leftnum].style.left=="-1616px"){
+            //     playleft[0].style.left='0px';
+            //     playleft[1].style.left='808px';
+            //     playleft[2].style.left='1616px';
+            // }
+        }
+
+        //实现滑动点来控制轮播图
+        var i_red = document.getElementById('i_red');
+        var i_black = document.getElementById('i_black');
+        var m_c_r_show = document.getElementsByClassName('m_c_r_show')[0];
+        var m_c_r_none = document.getElementsByClassName('m_c_r_none')[0];
+
+        i_red.onmouseenter = function () {
+            m_c_r_show.style.left = '0px';
+            m_c_r_none.style.left = '200px';
+            i_red.className = 'i_red bgred';
+            i_black.className = 'i_black';
+        }
+        i_black.onmouseenter = function () {
+            m_c_r_show.style.left = '-200px';
+            m_c_r_none.style.left = '0px';
+            i_red.className = 'i_red';
+            i_black.className = 'i_black bgred';
+        }
+
+        var i_red_m = document.getElementById('i_red_m');
+        var i_black_m = document.getElementById('i_black_m');
+        var banner_right = document.getElementById('banner_right');
+        i_red_m.onmouseenter = function () {
+            banner_right.style.left = '390px';
+            i_red_m.className = "i_red bgred"
+            i_black_m.className = 'i_black';
+        }
+        i_black_m.onmouseenter = function () {
+            banner_right.style.left = '0px';
+            i_black_m.className = "i_black bgred"
+            i_red_m.className = 'i_red';
+        }
+
+
+        //实现触摸切换视图
+        var hovers = document.getElementById('hover');
+        var m_b_l_banner_box = document.getElementsByClassName('m_b_l_banner_box');
+
+        hovers.onmouseover = function (e) {
+            var target = e.target;
+            var child = this.children;
+            for (var i = 0; i < child.length; i++) {
+                if (target == child[i]) {
+                    m_b_l_banner_box[i].className = 'm_b_l_banner_box opacity';
+                    child[i].className = 'red';
+                } else {
+                    m_b_l_banner_box[i].className = 'm_b_l_banner_box';
+                    child[i].className = 'hover';
+                }
+
+                if (i > 4) {
+                    i = 0;
+                }
+            }
+        }
+    </script>
+
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal', // 垂直切换选项:vertical 水平切换选项：horizontal
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
+        })        
+    </script>
+
+    <script>
+        var m_b_cen_left = document.getElementsByClassName('m_b_cen_left')[0];
+        var m_b_cen_right = document.getElementsByClassName('m_b_cen_right')[0];
+        var yhj_left = document.getElementById('yhj_left');
+        var yhj_right = document.getElementById('yhj_right');
+
+        yhj_left.onmouseenter = function () {
+            m_b_cen_left.style.left = '0px';
+            m_b_cen_right.style.left = '390px';
+            yhj_left.className = 'yhj_d_left d_red';
+            yhj_right.className = 'yhj_d_right';
+        }
+        yhj_right.onmouseenter = function () {
+            m_b_cen_right.style.left = '0px';
+            m_b_cen_left.style.left = '-390px';
+            yhj_left.className = 'yhj_d_left';
+            yhj_right.className = 'yhj_d_right d_red';
+        }
+
+    </script>
+
+    <script>
+        //加载
+        var jiazai_img = document.getElementById('jiazai_img');
+        var jiazai_test = document.getElementById('jiazai_test');
+        var timers = null;
+
+        setInterval(function () {
+            console.log(getScrollTop());
+            var gundong = getScrollTop();
+            if (gundong > 900) {
+                if (!timers) {
+                    timers = setTimeout(function () {
+                        jiazai_img.style.opacity = 0;
+                        jiazai_test.style.opacity = 1;
+                    }, 10000);
+                }
+            } else {
+                if (timers) {
+                    clearTimeout(timers);
+                    timers=null;
+                }
+            }
+        }, 100)
+
+
+        //获取滚动条的搞度
+        function getScrollTop() {
+            var scrollTop = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scrollTop = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                scrollTop = document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+
+    </script>
+</body>
+
+</html>
