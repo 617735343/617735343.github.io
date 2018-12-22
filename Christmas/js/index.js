@@ -191,7 +191,7 @@
     function clearCanvas() {
         console.log(textStage);
         document.querySelector("#stage").style["opacity"] = "0";
-        document.querySelector(".zhufubox").style["background"] = "url(" + "./img/01.jpg" + ")" + " " + "no-repeat";
+        document.querySelector(".zhufubox").style["background"] = "url(" + "./img/true.jfif" + ")" + " " + "no-repeat";
         document.querySelector(".zhufubox").style["background-size"] = "100%" + " " + "100%";
         document.querySelector(".zhufubox").style["opacity"] = "1";
     }
