@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <style id="AppleCss">
+
+    </style>
+</head>
+
+<body>
+    <div class="code-box">
+        <pre class="code"></pre>
+    </div>
+    <div class="preview-box">
+        <div class="preview">
+            <div class="preview-center">
+                <div class="apple">
+                    <div class="apple-body apple-left"></div>
+                    <div class="apple-body apple-right"></div>
+                    <div class="apple-stalk"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var css = `
+        /*
+         *平安夜怎么能没有苹果呢？
+         */
+
+         /*
+          *给一个背景
+          */
+         .preview{
+            height: 100%;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .preview-center{
+            width: 100%;
+            height: 170px;
+            position: relative;
+        }
+        /* 画一个苹果 */
+        .apple {
+            top: 50%;
+            height: 100px;
+            position: absolute;
+            left: 50%;
+            width: 100px;
+            z-index: 3;
+            transform: translateX(-50%);
+        }
+        
+        .apple-body {
+            background-color: #ff3300;
+            border-radius: 75% 75% 90% 90%;
+            height: 88px;
+            position: absolute;
+            width: 62px;
+            z-index: 3;
+        }
+
+        .apple-left {}
+
+        .apple-right {
+            right: 2px;
+        }
+        
+        /* 给苹果加个头 */
+        .apple-stalk {
+            border: none;
+            border-radius: 100%;
+            border-right: 3px solid #000;
+            height: 28px;
+            left: 28px;
+            position: absolute;
+            top: -10px;
+            width: 20px;
+            z-index: 2;
+        }
+        /*
+        * 这就完成一个苹果
+        * 是不是很好看？
+        */`;
+
+        function setCss(css) {
+            var n = 0;
+            var code = document.querySelector(".code");
+            var AppleCss = document.querySelector('#AppleCss');
+            setTimeout(function run() {
+                n++;
+                code.innerHTML = css.substring(0, n);
+                AppleCss.innerHTML = css.substring(0, n);
+                code.scrollTop = code.scrollHeight;
+                if (n < css.length) {
+                    setTimeout(run, 30);
+                }
+            }, 20)
+
+
+        }
+
+        setCss(css);
+    </script>
+</body>
+
+</html>

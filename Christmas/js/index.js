@@ -130,6 +130,7 @@
     var a = 4;
     var p = "圣诞的钟声即将响起，落叶飞舞着，温馨洋溢着，祝福伴随着，多少个不眠之夜都不及今天的平安夜来得幸福而快乐，温暖着这个不一样的夜晚。工作上的不如意或者生活中的不愉快都将它们通通抹掉，多点爱自己，才能把生活过得更加的美好。在此送上一句————";
     var s = "圣诞节快乐";
+    var next = '戳我进入下个页面';
     // event handlers
     function addListeners() {
         // form.addEventListener('submit', function(e) {
@@ -198,13 +199,20 @@
         }else if(a == -6){
             setTimeout(function () {
                 playerS("",s);
+                a--;
+                addListeners();
             }, 12000)
+        }else if(a == -7){
+            setTimeout(function(){
+                playerA('',next);
+            },2000)
         }
 
     }
 
     var zhufuP = document.querySelector(".zhufu p");
     var zhufuS = document.querySelector(".zhufu span");
+    var zhufua = document.querySelector('.zhufu a');
       console.log(zhufuP)
     //   console.log(zhufuStrong)
 
@@ -228,6 +236,10 @@
             setTimeout(runS,570);
           }
         },500)
+      }
+
+      function playerA(prefix,code,fn){
+        zhufua.style['opacity'] = 1;
       }
 
       
