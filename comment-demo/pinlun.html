@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body,
+        div,
+        h2,
+        h3,
+        ul,
+        li,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            color: #333;
+            background: #3c3a3b;
+            font: 12px/1.5 \5b8b\4f53;
+        }
+
+        #msgBox {
+            width: 500px;
+            background: #fff;
+            border-radius: 5px;
+            margin: 10px auto;
+            padding-top: 10px;
+        }
+
+        #msgBox form h2 {
+            font-weight: 400;
+            font: 400 18px/1.5 \5fae\8f6f\96c5\9ed1;
+        }
+
+        #msgBox form {
+            background: url(img/boxBG.jpg) repeat-x 0 bottom;
+            padding: 0 20px 15px;
+        }
+
+        #userName,
+        #conBox {
+            color: #777;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            background: #fff url(img/inputBG.png) repeat-x;
+            padding: 3px 5px;
+            font: 14px/1.5 arial;
+        }
+
+        #userName.active,
+        #conBox.active {
+            border: 1px solid #7abb2c;
+        }
+
+        #userName {
+            height: 20px;
+        }
+
+        #conBox {
+            width: 448px;
+            resize: none;
+            height: 65px;
+            overflow: auto;
+        }
+
+        #msgBox form div {
+            position: relative;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        #msgBox img {
+            border-radius: 3px;
+        }
+
+        #face {
+            position: absolute;
+            top: 0;
+            left: 172px;
+        }
+
+        #face img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-right: 6px;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+        #face img.hover,
+        #face img.current {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #f60;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        #sendBtn {
+            border: 0;
+            width: 112px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            background: url(img/btn.png) no-repeat;
+        }
+
+        #sendBtn.hover {
+            background-position: 0 -30px;
+        }
+
+        #msgBox form .maxNum {
+            font: 26px/30px Georgia, Tahoma, Arial;
+            padding: 0 5px;
+        }
+
+        #msgBox .list {
+            padding: 10px;
+        }
+
+        #msgBox .list h3 {
+            position: relative;
+            height: 33px;
+            font-size: 14px;
+            font-weight: 400;
+            background: #e3eaec;
+            border: 1px solid #dee4e7;
+        }
+
+        #msgBox .list h3 span {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            background: #fff;
+            line-height: 28px;
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        #msgBox .list ul {
+            overflow: hidden;
+            zoom: 1;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #msgBox .list ul li {
+            float: left;
+            clear: both;
+            width: 100%;
+            border-bottom: 1px dashed #d8d8d8;
+            padding: 10px 0;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        #msgBox .list ul li:hover a {
+            background: #f5f5f5;
+            display: inline-block;
+        }
+
+        #msgBox .list .userPic {
+            float: left;
+            width: 50px;
+            height: 50px;
+            display: inline;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #msgBox .list .content {
+            float: left;
+            width: 400px;
+            font-size: 14px;
+            margin-left: 10px;
+            font-family: arial;
+            word-wrap: break-word;
+        }
+
+        #msgBox .list .userName {
+            display: inline;
+            padding-right: 5px;
+        }
+
+        #msgBox .list .userName a {
+            color: #2b4a78;
+        }
+
+        #msgBox .list .msgInfo {
+            display: inline;
+            word-wrap: break-word;
+        }
+
+        #msgBox .list .times {
+            color: #889db6;
+            font: 12px/18px arial;
+            margin-top: 5px;
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        #msgBox .list .times span {
+            float: left;
+        }
+
+        #msgBox .list .times a {
+            float: right;
+            color: #889db6;
+            display: none;
+        }
+
+        .tr {
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        .tr p {
+            float: right;
+            line-height: 30px;
+        }
+
+        .tr * {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="msgBox">
+        <form>
+            <h2>来 , 说说你在做什么 , 想什么</h2>
+            <div>
+                <input id="userName" class="f-text" value="" />
+                <p id="face"><img src="img/face1.gif" class="current" /><img src="img/face2.gif" /><img src="img/face3.gif" /><img
+                        src="img/face4.gif" /><img src="img/face5.gif" /><img src="img/face6.gif" /><img src="img/face7.gif" /><img
+                        src="img/face8.gif" />
+                </p>
+            </div>
+            <div><textarea id="conBox" class="f-text" oninput="aa(event)" maxlength="140"></textarea></div>
+            <div class="tr">
+                <p>
+                    <span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+                    <input id="sendBtn" type="button" value="" title="快捷键 Ctrl+Enter" />
+                </p>
+            </div>
+        </form>
+        <div class="list">
+            <h3><span>大家在说</span></h3>
+            <ul>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">新增删除广播功能。</div>
+                        <div class="times"><span>07月05日 15:14</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">新增Ctrl+Enter快捷键发送广播。</div>
+                        <div class="times"><span>07月05日 12:20</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">新增选择头像功能。</div>
+                        <div class="times"><span>07月05日 12:08</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">增加了记录广播时间的功能。</div>
+                        <div class="times"><span>07月04日 16:55</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">增加了输入字符检测功能，英文/半角为半个字符，汉字/全角为一个字符。</div>
+                        <div class="times"><span>07月04日 08:30</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="userPic"><img src="img/face.gif" /></div>
+                    <div class="content">
+                        <div class="userName"><a href="javascript:;">日丶久生情</a>:</div>
+                        <div class="msgInfo">仿腾讯微博效果，欢迎大家测试！</div>
+                        <div class="times"><span>07月03日 20:19</span><a class="del" href="javascript:;">删除</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //初始化数据
+        var init = init();
+        var faseImgs = init["faceImg"];
+        var faseImgIndex = 0;
+        var zishu = 140;
+        var num = 140;
+
+        function getFaceImg() {
+            // var faseImgSrc = null;
+            for (var i = 0; i < faseImgs.length; i++) {
+                faseImgs[i].index = i;
+                faseImgs[i].onclick = function (event) {
+                    for (var i = 0; i < faseImgs.length; i++) {
+                        faseImgs[i].className = "";
+                    }
+                    faseImgs[this.index].className = "current";
+                    faseImgIndex = this.index;
+                    console.log(faseImgIndex);
+                }
+            }
+            console.log(faseImgIndex);
+            return faseImgs[faseImgIndex].src;
+        }
+
+        getFaceImg();
+
+        //点击提交按钮时执行
+        init["sendBtn"].onclick = function () {
+            var faseImgSrc = getFaceImg();
+            console.log(faseImgSrc);
+            var userName = init["userName"].value;
+            var conBox = init["conBox"].value;
+            if (userName == "") {
+                alert("请输入名称");
+            } else if (conBox == "") {
+                alert("说说你今天的想法吧");
+            } else {
+                //生成li
+                addLi(userName, conBox, faseImgSrc);
+                init["userName"].value = "";
+                init["conBox"].value = "";
+                init["maxNum"].textContent = 140;
+            }
+
+            delLI();
+        }
+
+        //监听输入的字数个数
+        init["conBox"].addEventListener("oninput", aa);
+        function aa(event) {
+            num = zishu - init["conBox"].value.length;
+            init["maxNum"].textContent = num;
+        }
+
+        var order=-1;
+        function addLi(userName, conBox, faseImgSrc) {
+            var li = create("li");
+            li.style["order"] = order--;
+            init["listUl"].appendChild(li);
+            var userPic = create("div");
+            userPic.className = "userPic";
+            var content = create("div");
+            content.className = "content";
+            li.appendChild(userPic);
+            li.appendChild(content);
+            var img = create("img");
+            img.src = faseImgSrc;
+            userPic.appendChild(img);
+            var userNames = create("div");
+            userNames.className = "userName";
+            var msgInfo = create("div");
+            msgInfo.className = "msgInfo";
+            msgInfo.textContent = conBox;
+            var times = create("div");
+            times.className = "times";
+            content.appendChild(userNames);
+            content.appendChild(msgInfo);
+            content.appendChild(times);
+            var a = create("a");
+            a.textContent = userName + ":";
+            userNames.appendChild(a);
+            var span = create("span");
+            var date = new Date();
+            console.log(date.getDate());
+            span.textContent = (date.getMonth() + 1) + "月" + date.getDate() + "日" + "  " + date.getHours() + ":" + date.getMinutes();
+            times.appendChild(span);
+            var del = create("a");
+            del.className = "del";
+            del.href = "javascript:;";
+            del.textContent = "删除";
+            times.appendChild(del);
+        }
+
+        //点击删除按钮时执行
+        function delLI() {
+            var delButton = document.querySelectorAll(".del");
+            var listLi = document.querySelectorAll(".list ul li");
+            for (var i = 0; i < delButton.length; i++) {
+                delButton[i].index = i;
+                delButton[i].onclick = function () {
+                    console.log(this.index);
+                    init["listUl"].removeChild(listLi[this.index]);
+                }
+            }
+        }
+
+        delLI();
+
+
+        function create(name) {
+            return document.createElement(name);
+        }
+
+        function init() {
+            var userName = document.querySelector("#userName");
+            var faceImg = document.querySelectorAll("#face img");
+            var conBox = document.querySelector("#conBox");
+            var maxNum = document.querySelector(".maxNum");
+            var sendBtn = document.querySelector("#sendBtn");
+            var listUl = document.querySelectorAll(".list ul")[0];
+
+            return {
+                "userName": userName,
+                "faceImg": faceImg,
+                "conBox": conBox,
+                "maxNum": maxNum,
+                "sendBtn": sendBtn,
+                "listUl": listUl,
+            }
+        }
+    </script>
+</body>
+
+</html>
