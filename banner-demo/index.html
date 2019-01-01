@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 590px;
+            height: 474px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container ul {
+            width: 5500px;
+            overflow: hidden;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            /* transition: all 1s; */
+        }
+
+        .container ul li {
+            float: left;
+        }
+
+        .container ol {
+            display: flex;
+            position: absolute;
+            justify-content: space-between;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container ol li {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .container ol li.hover {
+            background-color: white;
+        }
+
+        .to {
+            width: 30px;
+            height: 60px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            text-align: center;
+            line-height: 60px;
+            color: white;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            display: none;
+        }
+
+        .toleft {
+            left: 0;
+        }
+
+        .toright {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul style="left:-590px">
+
+        </ul>
+        <ol>
+
+        </ol>
+        <div class="to toleft">
+            <</div> <div class="to toright">>
+        </div>
+    </div>
+</body>
+
+<script>
+    var imgs = ['./img/04.jpg', './img/01.jpg', './img/02.jpg', './img/03.jpg', './img/04.jpg', './img/01.jpg'];
+    var container = document.querySelector('.container');
+    var ul = document.querySelector('.container ul');
+    var ol = document.querySelector('.container ol');
+    var to = document.querySelectorAll('.to');
+    var left = document.querySelector('.toleft');
+    var right = document.querySelector('.toright');
+    setHtml();
+    var olLi = document.querySelectorAll('.container ol li');
+    var ulLi = document.querySelectorAll('.container ul li');
+    var index = 0;
+    var animated = false;//控制优化快速点击切换的bug
+    var timer = null;
+
+    function setHtml() {
+        //生成图片
+        for (var i = 0; i < imgs.length; i++) {
+            var li = document.createElement('li');
+            li.id = i;
+            var img = document.createElement('img');
+            img.src = imgs[i];
+            ul.appendChild(li);
+            li.appendChild(img);
+        }
+
+        //生成点
+        for (var i = 0; i < imgs.length - 2; i++) {
+            var li = document.createElement('li');
+            li.id = i;
+            ol.appendChild(li);
+        }
+
+    }
+    setColor(0);
+
+
+    ol.addEventListener('click', olOver);
+    left.addEventListener('click', leftOnClick);
+    right.addEventListener('click', rightOnClick);
+    container.addEventListener('mouseover',function(){
+        clearInterval(timer);
+        for(var i=0;i<to.length;i++){
+            to[i].style.display = 'block';
+        }
+    });
+    container.addEventListener('mouseout',function(){
+        timer = setInterval(rightOnClick,3000);
+        for(var i=0;i<to.length;i++){
+            to[i].style.display = 'none';
+        }
+    })
+
+    function olOver(e) {
+        // console.log(ulLi[0])
+        var i = parseInt(index) + 1;
+        index = e.target.id ? e.target.id : index;
+        // console.log(index)
+       
+        // console.log(a)
+        var a = parseInt(index) + 1;
+        var offset = -ulLi[0].offsetWidth * (a - i);
+        if(!animated){
+            fn(offset);
+            setColor(index);
+        }
+        // ul.style.left = -a * ulLi[0].offsetWidth + 'px';
+        // fn(a * ulLi[0].offsetWidth);
+    }
+
+    function setColor(index) {
+
+        for (var i = 0; i < olLi.length; i++) {
+            olLi[i].classList.remove('hover');
+        }
+        olLi[index].classList.add('hover');
+    }
+
+    function leftOnClick() {
+        index--;
+        if (index < 0) {
+            index = ulLi.length - 3;
+        }
+        if(!animated){
+            fn(ulLi[0].offsetWidth);
+        }
+        
+        // var a = index-1;
+        setColor(index);
+    }
+
+    function rightOnClick() {
+        index++;
+        if (index > ulLi.length - 3) {
+            index = 0;
+        }
+        if(!animated){
+            fn(-ulLi[0].offsetWidth);
+        }
+        // var a = index-1;
+        setColor(index);
+    }
+
+    //自动轮播
+    timer = setInterval(rightOnClick,3000);
+
+
+
+    //缓动函数
+    function fn(offset) {
+        animated = true;
+        console.log(ul)
+        var ulLiOver = -(ulLi.length - 2) * ulLi[0].offsetWidth;
+        var newLeft = parseInt(ul.style.left) + offset;
+
+        function go() {
+            var time = 300;//位移总时间
+            var interval = 10;//位移间隔时间
+            var speed = offset / (time / interval);
+
+            if ((speed < 0 && parseInt(ul.style.left) > newLeft) || (speed > 0 && parseInt(ul.style.left) < newLeft)) {
+                ul.style.left = parseInt(ul.style.left) + speed + 'px';
+                setTimeout(go, interval);
+            } else {
+                animated = false;
+                ul.style.left = newLeft + 'px';
+
+                if (parseInt(ul.style.left) > -ulLi[0].offsetWidth) {
+                    ul.style.left = ulLiOver + 'px';
+                }
+                if (parseInt(ul.style.left) < ulLiOver) {
+                    ul.style.left = -ulLi[0].offsetWidth + 'px';
+                }
+            }
+        }
+        go();
+
+    }
+
+
+</script>
+
+</html>
